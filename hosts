@@ -1,4 +1,4 @@
 [ubuntu]
-host0.example.org ansible_ssh_host=192.168.33.10 ansible_ssh_private_key_file=.vagrant/machines/host0/virtualbox/private_key
-host1.example.org ansible_ssh_host=192.168.33.11 ansible_ssh_private_key_file=.vagrant/machines/host1/virtualbox/private_key
-host2.example.org ansible_ssh_host=192.168.33.12 ansible_ssh_private_key_file=.vagrant/machines/host2/virtualbox/private_key
+host0 ansible_ssh_host=192.168.33.10 ansible_ssh_private_key_file=.vagrant/machines/host0/virtualbox/private_key
+host1 ansible_ssh_host=192.168.33.11 ansible_ssh_private_key_file=.vagrant/machines/host1/virtualbox/private_key
+host2 ansible_ssh_host=192.168.33.12 ansible_ssh_private_key_file=.vagrant/machines/host2/virtualbox/private_key

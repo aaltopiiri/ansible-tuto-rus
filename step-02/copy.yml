@@ -1,0 +1,15 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks:
+  - name: Copy a "hostname" file from the remote machines to local
+    fetch:
+       src: /etc/hostname
+       dest: /Users/aalto/Projects/ansible-tuto-rus/step-02
+       flat: no
+  - name: Copy a "hostname" file on the remote machines for editing
+    become: True
+    copy:
+      src: /etc/hostname
+      dest: ~/
+      remote_src: yes
