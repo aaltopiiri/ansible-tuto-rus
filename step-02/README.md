@@ -14,11 +14,11 @@
 
 Этот модуль позволяет запускать shell-команды на удаленном узле:
 
-    ansible -i step-02/hosts -m shell -a 'uname -a' host0.example.org
+    ansible hosy0  -a 'uname -a'
 
 Вывод должен быть вроде:
 
-    host0.example.org | success | rc=0 >>
+    host0 | success | rc=0 >>
     Linux host0.example.org 3.2.0-23-generic-pae #36-Ubuntu SMP Tue Apr 10 22:19:09 UTC 2012 i686 i686 i386 GNU/Linux
 
 Легко!
@@ -27,11 +27,11 @@
 
 Не удивительно, модуль copy позволяет копировать файл из управляющей машины на удаленный узел. Представим что нам нужно скопировать наш `/etc/motd` в `/tmp` узла:
 
-    ansible -i step-02/hosts -m copy -a 'src=/etc/motd dest=/tmp/' host0.example.org
+    ansible host0 -m copy -a 'src=/etc/motd dest=/tmp/'
 
 Вывод:
 
-    host0.example.org | success >> {
+    host0 | success >> {
         "changed": true, 
         "dest": "/tmp/motd", 
         "group": "root", 
@@ -54,17 +54,17 @@ Ansible (точнее, модуль _copy_, запущенный на узле) 
 
 Допустим, мы хотим собрать факты про узел и, например, хотим узнать какая версия Ubuntu установлена на узлах. Это довольно легко:
 
-    ansible -i step-02/hosts -m shell -a 'grep DISTRIB_RELEASE /etc/lsb-release' all
+    ansible all -a 'grep DISTRIB_RELEASE /etc/lsb-release'
 
 `all` это синоним 'все хосты в inventory-файле'. Вывод будет примерно таким:
 
-    host1.example.org | success | rc=0 >>
+    host1 | success | rc=0 >>
     DISTRIB_RELEASE=12.04
 
-    host2.example.org | success | rc=0 >>
+    host2 | success | rc=0 >>
     DISTRIB_RELEASE=12.04
 
-    host0.example.org | success | rc=0 >>
+    host0 | success | rc=0 >>
     DISTRIB_RELEASE=12.04
 
 # Больше фактов
@@ -73,7 +73,7 @@ Ansible (точнее, модуль _copy_, запущенный на узле) 
 
 Попробуйте:
 
-    ansible -i step-02/hosts -m setup host0.example.org
+    ansible host0 -m
 
 ответ:
 
