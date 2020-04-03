@@ -129,10 +129,8 @@ Ansible (точнее, модуль _copy_, запущенный на узле) 
 Мы видели, что `all` означает 'все хосты', но в Ansible есть
 [куча иных способов выбирать хосты](http://ansible.cc/docs/patterns.html#selecting-targets):
 
-- `host0.example.org:host1.example.org` будет запущен на host0.example.org и на
-  host1.example.org
-- `host*.example.org` будет запущен на всех хостах, названия которых начинается с 'host' и заканчивается на
-'.example.org' (тоже как в shell)
+- `host0:host1` будет запущен на host0 и на host1
+- `host*` будет запущен на всех хостах, названия которых начинается с 'host' (тоже как в shell)
 
 Есть другие способы с использованием групп, о них мы узнаем в следующем шаге
 [step-03](https://github.com/freetonik/ansible-tuto-rus/tree/master/step-03).
